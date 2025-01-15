@@ -1,6 +1,6 @@
 NAME = fractal
 CC = cc
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g3 
 RM = rm -rf
 
 
@@ -15,7 +15,7 @@ $(NAME): $(OBJ)
 
 
 %.o: %.c
-	$(CC) -Wall -Wextra -Werror -I/usr/include -Imlx_linux -O3 -c $< -o $@
+	$(CC) -Wall -Wextra -Werror -g3 -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 all: $(NAME)
 
