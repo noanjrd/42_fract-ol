@@ -2,8 +2,7 @@
 #include "fractol.h"
 
 # define WINDOW_WIDTH 600
-# define WINDOW_HEIGHT 300
-#define	MLX_ERROR 1
+# define WINDOW_HEIGHT 400
 
 
 typedef struct	color
@@ -62,7 +61,7 @@ typedef struct	s_fractal
 
 int calculate_julia_color(double z_x, double z_y, s_fractal *fractal)
 {
-    int max_iterations = 200;
+    int max_iterations = 100;
     int iteration = 0;
     double temp;
 
@@ -107,12 +106,11 @@ void draw(s_fractal *fractal)
 }
 
 
-int mouse_hook(int button, int x, int y, void *param)
+int mouse_hook(int button, void *param)
 {
 	s_fractal *fractal = (s_fractal *)param;
 
-	x = 0;
-	y = 0;
+    printf("%d", button);
     if (button == 5 && fractal->zoom > 0.01)
     {
 		fractal->zoom *= 1.1;
@@ -161,6 +159,20 @@ int print_key(int key, s_fractal *fractal)
         fractal->start_y -= 0.1 * fractal->zoom;
         draw(fractal);
     }
+    if (key == 65307)
+    {
+		on_destroy_event(fractal);
+    }
+    if (key == 'a' && fractal->zoom > 0.01)
+    {
+		fractal->zoom *= 1.1;
+		draw(fractal);
+    }
+    if (key == 'z' && fractal->zoom < 500.0)
+    {
+		fractal->zoom *= 0.9;
+		draw(fractal);
+    }
     printf("Key pressed: %d\n", key);
     return (0);
 }
@@ -185,7 +197,7 @@ int main(void)
 
 	fractal->mlx = mlx_init();
 	if (!fractal->mlx)
-		return (MLX_ERROR);
+		return (1);
 	fractal->win = mlx_new_window(fractal->mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "Fract-ol");
 	fractal->img = mlx_new_image(fractal->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
 	fractal->addr = mlx_get_data_addr(fractal->img, &fractal->bits_per_pixel, &fractal->line_length, &fractal->endian);
