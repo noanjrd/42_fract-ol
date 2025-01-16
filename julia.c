@@ -31,7 +31,7 @@
 
 int	calculate_julia_color(double z_x, double z_y, s_fractal *fractal)
 {
-	int max_iterations = 50;
+	int max_iterations = 100;
 	int iteration = 0;
 	double temp;
 

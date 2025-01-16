@@ -6,7 +6,7 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 10:19:29 by njard             #+#    #+#             */
-/*   Updated: 2025/01/16 15:37:19 by njard            ###   ########.fr       */
+/*   Updated: 2025/01/16 18:17:13 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct	s_fractal
 # define fourline "|     -Julia                                                         |\n"
 # define fiveline "|     -Mandelbrot                                                    |\n"
 # define sixline "|                                                                    |\n"
-# define sevenline "| Please enter your input in this form in your terminal :            |\n"
+# define sevenline "| Please enter your input into this form in the terminal :           |\n"
 # define eightline "|                                                                    |\n"
 # define nineline "| ./fractal <fractal name> <reel constant> <imaginary constant>      |\n"
 # define tenline "|                                                                    |\n"
