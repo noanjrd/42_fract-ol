@@ -1,15 +1,19 @@
 NAME = fractal
 CC = cc
-FLAGS = -Wall -Wextra -Werror -g3 
+FLAGS = -Wall -Wextra -Werror -g3 -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz 
 RM = rm -rf
 
 
-SRCS =	test2.c\
+SRCS =	*.c
+PRINTF_SRCS =	ft_printf/*.c
 
-OBJ := ${SRCS:.c=.o}
+PRINTF = ft_printf/libftprintf.a
+LIBS = ft_printf/libftprintf.a mlx_linux/libmlx_Linux.a mlx_linux/libmlx.a
+OBJ = ${SRCS:.c=.o} ${PRINTF_SRCS:.c=.o}
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz -o $(NAME)
+	make -C ft_printf/
+	$(CC) $(SRCS) $(PRINTF_SRCS) $(LIBS) $(FLAGS) -o $(NAME)
 
 
 %.o: %.c
@@ -18,10 +22,12 @@ $(NAME): $(OBJ)
 all: $(NAME)
 
 clean: 
-	$(RM) $(OBJ) $(OBJ)
+	$(RM) $(OBJ)
+
 
 fclean: clean
 	$(RM) $(NAME)
+	make -C ft_printf/ fclean
 
 re: fclean all
 
