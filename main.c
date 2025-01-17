@@ -1,7 +1,16 @@
-
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/17 11:46:27 by njard             #+#    #+#             */
+/*   Updated: 2025/01/17 11:46:32 by njard            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "fractol.h"
-
 
 void instructions_display()
 {
@@ -34,38 +43,32 @@ int	check_name_selection(char *argv, char *chaine)
 		i++;
 	}
 	return (1);
-	
 }
 
-void	menu(int argc, char **argv, s_fractal *fractal)
+void	menu(int argc, char **argv, s_fractal **fractal)
 {
 	if (argc == 1)
 	{
 		instructions_display();
+		free(*fractal);
 		exit(1);
 	}
 	if (check_name_selection(argv[1], "Julia"))
-		fractal->number = 0;
+		(*fractal)->number = 0;
 	if (check_name_selection(argv[1], "Mandelbrot"))
-		fractal->number = 1;
+		(*fractal)->number = 1;
 	if (argc >= 3)
-		fractal->c_re = ft_atoi(argv[2]);
+		(*fractal)->c_re = ft_atoi(argv[2]);
 	if (argc == 4)
-		fractal->c_i = ft_atoi(argv[3]);
+		(*fractal)->c_i = ft_atoi(argv[3]);
 }
 
-
-
-void draw(s_fractal *fractal)
+void draw(s_fractal **fractal)
 {
-	if (fractal->number == 0)
-	{
+	if ((*fractal)->number == 0)
 		draw_julia(fractal);
-	}
-	if (fractal->number == 1)
-	{
+	if ((*fractal)->number == 1)
 		draw_mandelbrot(fractal);
-	}
 }
 
 int main(int argc, char **argv)
@@ -80,18 +83,14 @@ int main(int argc, char **argv)
 	fractal->zoom = 1.0;
 	fractal->start_x = 0;
 	fractal->start_y = 0;
-	menu(argc, argv, fractal);
-
+	fractal->iteration = 50;
+	menu(argc, argv, &fractal);
 	fractal->mlx = mlx_init();
-	if (!fractal->mlx)
-		return (1);
 	fractal->win = mlx_new_window(fractal->mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "Fract-ol");
 	fractal->img = mlx_new_image(fractal->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
 	fractal->addr = mlx_get_data_addr(fractal->img, &fractal->bits_per_pixel, &fractal->line_length, &fractal->endian);
-
-	malloc_color(fractal);
-	draw(fractal);
-	
+	malloc_color(&fractal);
+	draw(&fractal);
 	mlx_put_image_to_window(fractal->mlx, fractal->win, fractal->img, 0, 0);
-	key_pressure(fractal);
+	key_pressure(&fractal);
 }
