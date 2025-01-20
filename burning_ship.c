@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Mandelbrot.c                                       :+:      :+:    :+:   */
+/*   burning_ship.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/17 11:46:19 by njard             #+#    #+#             */
-/*   Updated: 2025/01/20 12:04:25 by njard            ###   ########.fr       */
+/*   Created: 2025/01/20 13:34:43 by njard             #+#    #+#             */
+/*   Updated: 2025/01/20 13:46:32 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	calculate_mandelbrot_color(s_fractal *fractal)
+int	calculate_burning_ship_color(s_fractal *fractal)
 {
 	int		iteration;
 	double	temp;
 	int		result;
-	double	z_x;
 	double	z_y;
+	double	z_x;
 
+	iteration = 0;
 	z_x = 0;
 	z_y = 0;
-	iteration = 0;
 	while ((z_x * z_x + z_y * z_y <= 4) && (iteration < fractal->iteration))
 	{
+		z_x = fabs(z_x);
+		z_y = fabs(z_y);
 		temp = z_x * z_x - z_y * z_y + fractal->c_re;
 		z_y = 2.0 * z_x * z_y + fractal->c_i;
 		z_x = temp;
@@ -32,14 +34,14 @@ int	calculate_mandelbrot_color(s_fractal *fractal)
 	}
 	if (iteration == fractal->iteration)
 		return (0x000000);
-	result = iteration * *(fractal->adress);
+	result = iteration * (*fractal->adress);
 	return (result);
 }
 
 static void	put_image(s_fractal **fractal)
 {
-	mlx_put_image_to_window((*fractal)->mlx, (*fractal)->win, (*fractal)->img,
-		0, 0);
+	mlx_put_image_to_window((*fractal)->mlx, (*fractal)->win,
+		(*fractal)->img, 0, 0);
 	return ;
 }
 
@@ -51,7 +53,7 @@ static void	define(s_fractal **fractal)
 	mlx_clear_window((*fractal)->mlx, (*fractal)->win);
 }
 
-void	draw_mandelbrot(s_fractal **fractal)
+void	draw_burning_ship(s_fractal **fractal)
 {
 	int	color;
 	int	new_y;
@@ -68,7 +70,7 @@ void	draw_mandelbrot(s_fractal **fractal)
 				/ (*fractal)->scale;
 			(*fractal)->c_i = (*fractal)->start_y + (new_y - WINDOW_HEIGHT / 2)
 				/ (*fractal)->scale;
-			color = calculate_mandelbrot_color((*fractal));
+			color = calculate_burning_ship_color(*fractal);
 			((int *)(*fractal)->addr)[new_y * WINDOW_WIDTH + new_x] = color;
 			new_x++;
 		}

@@ -6,63 +6,113 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 10:19:29 by njard             #+#    #+#             */
-/*   Updated: 2025/01/17 11:23:20 by njard            ###   ########.fr       */
+/*   Updated: 2025/01/20 16:03:31 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-#include <stdlib.h>
-#include <math.h>
-#include <stdint.h>
-
-#include "ft_printf/ft_printf.h"
-#include "mlx_linux/mlx.h"
-#include "mlx_linux/mlx_int.h"
+# include "ft_printf/ft_printf.h"
+# include "mlx_linux/mlx.h"
+# include "mlx_linux/mlx_int.h"
+# include <math.h>
+# include <stdint.h>
+# include <stdlib.h>
 
 # define WINDOW_WIDTH 600
 # define WINDOW_HEIGHT 600
 
-
-typedef struct	s_fractal
+typedef struct s_fractal
 {
 	void	*mlx;
 	void	*win;
 	void	*img;
 	void	*addr;
-	int	number;
-	int	bits_per_pixel;
-	int	line_length;
-	int	endian;
-    double  zoom;
-    double     start_x;
-    double     start_y;
-    double c_re;
-    double c_i;
-	int	*adress;
-	int	iteration;
-}				s_fractal;
+	int		number;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+	double	zoom;
+	double	start_x;
+	double	start_y;
+	double	c_re;
+	double	c_i;
+	int		*adress;
+	int		iteration;
+	double	z_x;
+	double	z_y;
+	double	scale;
+}			s_fractal;
+# define ONELINE_PART1 "|"
+# define ONELINE_PART2 "----------------------------------------"
+# define ONELINE_PART3 "--------------------------------------|\n"
 
-# define oneline "|--------------------------------------------------------------------|\n"
-# define twoline "| Here are all the fractals available :                              |\n"
-# define threeline "|                                                                    |\n"
-# define fourline "|     -Julia                                                         |\n"
-# define fiveline "|     -Mandelbrot                                                    |\n"
-# define sixline "|                                                                    |\n"
-# define sevenline "| Please enter your input into this form in the terminal :           |\n"
-# define eightline "|                                                                    |\n"
-# define nineline "| ./fractal <fractal name> <reel constant> <imaginary constant>      |\n"
-# define tenline "|                                                                    |\n"
-# define elevenline "|--------------------------------------------------------------------|\n"
+# define TWOLINE_PART1 "| Here are all the fractals"
+# define TWOLINE_PART2 " available :               "
+# define TWOLINE_PART3 "                         |\n"
 
-int print_key(int key, s_fractal **fractal);
-int	on_destroy_event(s_fractal **fractal);
-void draw(s_fractal **fractal);
-void key_pressure(s_fractal **fractal);
-void	draw_julia(s_fractal **fractal);
-void	draw_mandelbrot(s_fractal **fractal);
-int	ft_atoi(const char *nptr);
-void	malloc_color(s_fractal **fractal);
+# define THREELINE_PART1 "|                          "
+# define THREELINE_PART2 "                          "
+# define THREELINE_PART3 "                          |\n"
+
+# define FOURLINE_PART1 "|   -Julia                "
+# define FOURLINE_PART2 "                          "
+# define FOURLINE_PART3 "                           |\n"
+
+# define FIVELINE_PART1 "|   -Mandelbrot           "
+# define FIVELINE_PART2 "                          "
+# define FIVELINE_PART3 "                           |\n"
+
+# define FIVELINE2_PART1 "|   -Burning_ship         "
+# define FIVELINE2_PART2 "                          "
+# define FIVELINE2_PART3 "                           |\n"
+
+# define SIXLINE_PART1 "|                          "
+# define SIXLINE_PART2 "                          "
+# define SIXLINE_PART3 "                          |\n"
+
+# define SEVENLINE_PART1 "| Please enter your input "
+# define SEVENLINE_PART2 "into this form in the "
+# define SEVENLINE_PART3 "terminal :                     |\n"
+
+# define EIGHTLINE_PART1 "|                          "
+# define EIGHTLINE_PART2 "                          "
+# define EIGHTLINE_PART3 "                          |\n"
+
+# define TENLINE_PART1 "|   ./fractol <fractal "
+# define TENLINE_PART2 "name> [reel constant] [ "
+# define TENLINE_PART3 "imaginary constant]             |\n"
+
+# define TENLINE1_PART1 "| The real and imaginary "
+# define TENLINE1_PART2 "constant are optional "
+# define TENLINE1_PART3 "parameters for Julia set.       |\n"
+
+# define TENLINE2_PART1 "| You can press i to add "
+# define TENLINE2_PART2 "iterations.                "
+# define TENLINE2_PART3 "                           |\n"
+
+# define TENLINE3_PART1 "| You can also press q,w,a"
+# define TENLINE3_PART2 " and s to change the "
+# define TENLINE3_PART3 "parameters.                     |\n"
+
+# define TENLINE4_PART1 "|                          "
+# define TENLINE4_PART2 "                          "
+# define TENLINE4_PART3 "                          |\n"
+
+# define ELEVENLINE_PART1 "|"
+# define ELEVENLINE_PART2 "---------------------------------------"
+# define ELEVENLINE_PART3 "---------------------------------------|\n"
+
+int			print_key(int key, s_fractal **fractal);
+int			on_destroy_event(s_fractal **fractal);
+void		draw(s_fractal **fractal);
+void		key_pressure(s_fractal **fractal);
+void		draw_julia(s_fractal **fractal);
+void		draw_mandelbrot(s_fractal **fractal);
+int			ft_atoi(const char *nptr);
+void		malloc_color(s_fractal **fractal);
+void		instructions_display(void);
+void		draw_burning_ship(s_fractal **fractal);
 
 #endif

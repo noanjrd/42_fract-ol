@@ -6,26 +6,11 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:46:27 by njard             #+#    #+#             */
-/*   Updated: 2025/01/17 11:46:32 by njard            ###   ########.fr       */
+/*   Updated: 2025/01/20 13:43:52 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-void instructions_display()
-{
-	ft_printf("%s", oneline);
-	ft_printf("%s", twoline);
-	ft_printf("%s", threeline);
-	ft_printf("%s", fourline);
-	ft_printf("%s", fiveline);
-	ft_printf("%s", sixline);
-	ft_printf("%s", sevenline);
-	ft_printf("%s", eightline);
-	ft_printf("%s", nineline);
-	ft_printf("%s", tenline);
-	ft_printf("%s", elevenline);
-}
 
 int	check_name_selection(char *argv, char *chaine)
 {
@@ -36,6 +21,11 @@ int	check_name_selection(char *argv, char *chaine)
 	len = 0;
 	while (chaine[len])
 		len++;
+	while (argv[i])
+		i++;
+	if (i != len)
+		return (0);
+	i = 0;
 	while (i < len)
 	{
 		if (argv[i] != chaine[i])
@@ -57,38 +47,57 @@ void	menu(int argc, char **argv, s_fractal **fractal)
 		(*fractal)->number = 0;
 	if (check_name_selection(argv[1], "Mandelbrot"))
 		(*fractal)->number = 1;
+	if (check_name_selection(argv[1], "Burning_ship"))
+		(*fractal)->number = 2;
 	if (argc >= 3)
 		(*fractal)->c_re = ft_atoi(argv[2]);
 	if (argc == 4)
 		(*fractal)->c_i = ft_atoi(argv[3]);
+	if ((*fractal)->number == 99)
+	{
+		instructions_display();
+		free(*fractal);
+		exit(1);
+	}
 }
 
-void draw(s_fractal **fractal)
+void	draw(s_fractal **fractal)
 {
 	if ((*fractal)->number == 0)
 		draw_julia(fractal);
 	if ((*fractal)->number == 1)
 		draw_mandelbrot(fractal);
+	if ((*fractal)->number == 2)
+		draw_burning_ship(fractal);
 }
 
-int main(int argc, char **argv)
+void	init_fractal(s_fractal **fractal)
+{
+	(*fractal)->number = 99;
+	(*fractal)->c_re = -0.7;
+	(*fractal)->c_i = 0.3;
+	(*fractal)->zoom = 1.0;
+	(*fractal)->start_x = 0;
+	(*fractal)->start_y = 0;
+	(*fractal)->iteration = 50;
+}
+
+int	main(int argc, char **argv)
 {
 	s_fractal	*fractal;
 
 	fractal = malloc(sizeof(s_fractal));
 	if (!fractal)
 		exit(1);
-	fractal->c_re = -0.7;
-	fractal->c_i = 0.3;
-	fractal->zoom = 1.0;
-	fractal->start_x = 0;
-	fractal->start_y = 0;
-	fractal->iteration = 50;
+	init_fractal(&fractal);
 	menu(argc, argv, &fractal);
 	fractal->mlx = mlx_init();
-	fractal->win = mlx_new_window(fractal->mlx, WINDOW_WIDTH, WINDOW_HEIGHT, "Fract-ol");
-	fractal->img = mlx_new_image(fractal->mlx, WINDOW_WIDTH, WINDOW_HEIGHT);
-	fractal->addr = mlx_get_data_addr(fractal->img, &fractal->bits_per_pixel, &fractal->line_length, &fractal->endian);
+	fractal->win = mlx_new_window(fractal->mlx,
+			WINDOW_WIDTH, WINDOW_HEIGHT, "Fract-ol");
+	fractal->img = mlx_new_image(fractal->mlx,
+			WINDOW_WIDTH, WINDOW_HEIGHT);
+	fractal->addr = mlx_get_data_addr(fractal->img,
+			&fractal->bits_per_pixel, &fractal->line_length, &fractal->endian);
 	malloc_color(&fractal);
 	draw(&fractal);
 	mlx_put_image_to_window(fractal->mlx, fractal->win, fractal->img, 0, 0);
