@@ -1,10 +1,10 @@
 NAME = fract-ol
 CC = cc
-FLAGS = -Wall -Wextra  -g3 -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz 
+FLAGS = -Wall -Wextra -g3 -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz 
 RM = rm -rf
 
-SRCS =	*.c
-PRINTF_SRCS =	ft_printf/*.c
+SRCS = *.c
+PRINTF_SRCS = ft_printf/*.c
 
 PRINTF = ft_printf/libftprintf.a
 LIBS = ft_printf/libftprintf.a mlx_linux/libmlx_Linux.a mlx_linux/libmlx.a
@@ -14,20 +14,31 @@ $(NAME): $(OBJ)
 	make -C ft_printf/
 	$(CC) $(SRCS) $(PRINTF_SRCS) $(LIBS) $(FLAGS) -o $(NAME)
 
-
 %.o: %.c
 	$(CC) -Wall -Wextra -Werror -g3 -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
-all: $(NAME)
+mlx_linux:
+	@if [ ! -d "mlx_linux" ]; then \
+		git clone https://github.com/42Paris/minilibx-linux.git mlx_linux; \
+	fi
+	make -C mlx_linux/
 
-clean: 
+install: mlx_linux ft_printf
+
+all: install $(NAME)
+
+clean:
 	$(RM) $(OBJ)
-
+	make -C ft_printf/ clean
+	@if [ -d "mlx_linux" ]; then \
+		make -C mlx_linux/ clean; \
+	fi
 
 fclean: clean
 	$(RM) $(NAME)
 	make -C ft_printf/ fclean
+	$(RM) mlx_linux
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re install mlx_linux
