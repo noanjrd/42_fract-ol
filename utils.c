@@ -6,13 +6,13 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:46:10 by njard             #+#    #+#             */
-/*   Updated: 2025/01/20 13:07:26 by njard            ###   ########.fr       */
+/*   Updated: 2025/01/21 11:16:34 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	on_destroy_event(s_fractal **fractal)
+int	on_destroy_event(t_fractal **fractal)
 {
 	mlx_destroy_image((*fractal)->mlx, (*fractal)->img);
 	mlx_destroy_window((*fractal)->mlx, (*fractal)->win);
@@ -24,7 +24,7 @@ int	on_destroy_event(s_fractal **fractal)
 	exit(1);
 }
 
-int	print_key(int key, s_fractal **fractal)
+int	print_key(int key, t_fractal **fractal)
 {
 	if (key == 65363)
 		(*fractal)->start_x += 0.1 * (*fractal)->zoom;
@@ -52,9 +52,9 @@ int	print_key(int key, s_fractal **fractal)
 
 int	mouse_hook(int button, int x, int y, void **param)
 {
-	s_fractal	**fractal;
+	t_fractal	**fractal;
 
-	fractal = (s_fractal **)param;
+	fractal = (t_fractal **)param;
 	x = 0;
 	y = 0;
 	if (button == 5)
@@ -65,7 +65,7 @@ int	mouse_hook(int button, int x, int y, void **param)
 	return (0);
 }
 
-void	malloc_color(s_fractal **fractal)
+void	malloc_color(t_fractal **fractal)
 {
 	uintptr_t	raw_address;
 
@@ -76,7 +76,7 @@ void	malloc_color(s_fractal **fractal)
 	*((*fractal)->adress) = raw_address ;
 }
 
-void	key_pressure(s_fractal **fractal)
+void	key_pressure(t_fractal **fractal)
 {
 	mlx_hook((*fractal)->win, 6, KeyPressMask, mouse_hook, fractal);
 	mlx_mouse_hook((*fractal)->win, mouse_hook, fractal);

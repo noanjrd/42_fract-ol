@@ -6,13 +6,13 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:34:43 by njard             #+#    #+#             */
-/*   Updated: 2025/01/20 13:46:32 by njard            ###   ########.fr       */
+/*   Updated: 2025/01/21 10:05:37 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	calculate_burning_ship_color(s_fractal *fractal)
+int	calculate_burning_ship_color(t_fractal *fractal)
 {
 	int		iteration;
 	double	temp;
@@ -38,14 +38,14 @@ int	calculate_burning_ship_color(s_fractal *fractal)
 	return (result);
 }
 
-static void	put_image(s_fractal **fractal)
+static void	put_image(t_fractal **fractal)
 {
 	mlx_put_image_to_window((*fractal)->mlx, (*fractal)->win,
 		(*fractal)->img, 0, 0);
 	return ;
 }
 
-static void	define(s_fractal **fractal)
+static void	define(t_fractal **fractal)
 {
 	(*fractal)->scale = WINDOW_WIDTH / ((*fractal)->zoom * 4);
 	(*fractal)->z_x = 0;
@@ -53,7 +53,7 @@ static void	define(s_fractal **fractal)
 	mlx_clear_window((*fractal)->mlx, (*fractal)->win);
 }
 
-void	draw_burning_ship(s_fractal **fractal)
+void	draw_burning_ship(t_fractal **fractal)
 {
 	int	color;
 	int	new_y;

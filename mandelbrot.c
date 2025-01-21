@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Mandelbrot.c                                       :+:      :+:    :+:   */
+/*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:46:19 by njard             #+#    #+#             */
-/*   Updated: 2025/01/20 12:04:25 by njard            ###   ########.fr       */
+/*   Updated: 2025/01/21 10:05:09 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	calculate_mandelbrot_color(s_fractal *fractal)
+int	calculate_mandelbrot_color(t_fractal *fractal)
 {
 	int		iteration;
 	double	temp;
@@ -36,14 +36,14 @@ int	calculate_mandelbrot_color(s_fractal *fractal)
 	return (result);
 }
 
-static void	put_image(s_fractal **fractal)
+static void	put_image(t_fractal **fractal)
 {
 	mlx_put_image_to_window((*fractal)->mlx, (*fractal)->win, (*fractal)->img,
 		0, 0);
 	return ;
 }
 
-static void	define(s_fractal **fractal)
+static void	define(t_fractal **fractal)
 {
 	(*fractal)->scale = WINDOW_WIDTH / ((*fractal)->zoom * 4);
 	(*fractal)->z_x = 0;
@@ -51,7 +51,7 @@ static void	define(s_fractal **fractal)
 	mlx_clear_window((*fractal)->mlx, (*fractal)->win);
 }
 
-void	draw_mandelbrot(s_fractal **fractal)
+void	draw_mandelbrot(t_fractal **fractal)
 {
 	int	color;
 	int	new_y;

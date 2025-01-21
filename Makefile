@@ -1,4 +1,4 @@
-NAME = fractol
+NAME = fract-ol
 CC = cc
 FLAGS = -Wall -Wextra  -g3 -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz 
 RM = rm -rf

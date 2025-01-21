@@ -6,7 +6,7 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:46:27 by njard             #+#    #+#             */
-/*   Updated: 2025/01/20 13:43:52 by njard            ###   ########.fr       */
+/*   Updated: 2025/01/21 11:17:41 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	check_name_selection(char *argv, char *chaine)
 	return (1);
 }
 
-void	menu(int argc, char **argv, s_fractal **fractal)
+void	menu(int argc, char **argv, t_fractal **fractal)
 {
 	if (argc == 1)
 	{
@@ -61,7 +61,7 @@ void	menu(int argc, char **argv, s_fractal **fractal)
 	}
 }
 
-void	draw(s_fractal **fractal)
+void	draw(t_fractal **fractal)
 {
 	if ((*fractal)->number == 0)
 		draw_julia(fractal);
@@ -71,7 +71,7 @@ void	draw(s_fractal **fractal)
 		draw_burning_ship(fractal);
 }
 
-void	init_fractal(s_fractal **fractal)
+void	init_fractal(t_fractal **fractal)
 {
 	(*fractal)->number = 99;
 	(*fractal)->c_re = -0.7;
@@ -84,9 +84,9 @@ void	init_fractal(s_fractal **fractal)
 
 int	main(int argc, char **argv)
 {
-	s_fractal	*fractal;
+	t_fractal	*fractal;
 
-	fractal = malloc(sizeof(s_fractal));
+	fractal = malloc(sizeof(t_fractal));
 	if (!fractal)
 		exit(1);
 	init_fractal(&fractal);

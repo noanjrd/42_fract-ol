@@ -6,13 +6,13 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:46:02 by njard             #+#    #+#             */
-/*   Updated: 2025/01/20 13:36:38 by njard            ###   ########.fr       */
+/*   Updated: 2025/01/21 10:04:53 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int	calculate_julia_color(double z_x, double z_y, s_fractal *fractal)
+int	calculate_julia_color(double z_x, double z_y, t_fractal *fractal)
 {
 	int		iteration;
 	double	temp;
@@ -32,14 +32,14 @@ int	calculate_julia_color(double z_x, double z_y, s_fractal *fractal)
 	return (result);
 }
 
-static void	put_image(s_fractal **fractal)
+static void	put_image(t_fractal **fractal)
 {
 	mlx_put_image_to_window((*fractal)->mlx, (*fractal)->win,
 		(*fractal)->img, 0, 0);
 	return ;
 }
 
-static void	define(s_fractal **fractal)
+static void	define(t_fractal **fractal)
 {
 	(*fractal)->scale = WINDOW_WIDTH / ((*fractal)->zoom * 4);
 	(*fractal)->z_x = 0;
@@ -47,7 +47,7 @@ static void	define(s_fractal **fractal)
 	mlx_clear_window((*fractal)->mlx, (*fractal)->win);
 }
 
-void	draw_julia(s_fractal **fractal)
+void	draw_julia(t_fractal **fractal)
 {
 	int	color;
 	int	new_y;

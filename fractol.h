@@ -6,7 +6,7 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 10:19:29 by njard             #+#    #+#             */
-/*   Updated: 2025/01/20 16:03:31 by njard            ###   ########.fr       */
+/*   Updated: 2025/01/21 11:34:09 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 # define WINDOW_WIDTH 600
 # define WINDOW_HEIGHT 600
 
-typedef struct s_fractal
+typedef struct t_fractal
 {
 	void	*mlx;
 	void	*win;
@@ -43,7 +43,7 @@ typedef struct s_fractal
 	double	z_x;
 	double	z_y;
 	double	scale;
-}			s_fractal;
+}			t_fractal;
 # define ONELINE_PART1 "|"
 # define ONELINE_PART2 "----------------------------------------"
 # define ONELINE_PART3 "--------------------------------------|\n"
@@ -80,8 +80,8 @@ typedef struct s_fractal
 # define EIGHTLINE_PART2 "                          "
 # define EIGHTLINE_PART3 "                          |\n"
 
-# define TENLINE_PART1 "|   ./fractol <fractal "
-# define TENLINE_PART2 "name> [reel constant] [ "
+# define TENLINE_PART1 "|   ./fract-ol <fractal "
+# define TENLINE_PART2 "name> [reel constant] ["
 # define TENLINE_PART3 "imaginary constant]             |\n"
 
 # define TENLINE1_PART1 "| The real and imaginary "
@@ -94,7 +94,7 @@ typedef struct s_fractal
 
 # define TENLINE3_PART1 "| You can also press q,w,a"
 # define TENLINE3_PART2 " and s to change the "
-# define TENLINE3_PART3 "parameters.                     |\n"
+# define TENLINE3_PART3 "parameters for Julia set.       |\n"
 
 # define TENLINE4_PART1 "|                          "
 # define TENLINE4_PART2 "                          "
@@ -104,15 +104,15 @@ typedef struct s_fractal
 # define ELEVENLINE_PART2 "---------------------------------------"
 # define ELEVENLINE_PART3 "---------------------------------------|\n"
 
-int			print_key(int key, s_fractal **fractal);
-int			on_destroy_event(s_fractal **fractal);
-void		draw(s_fractal **fractal);
-void		key_pressure(s_fractal **fractal);
-void		draw_julia(s_fractal **fractal);
-void		draw_mandelbrot(s_fractal **fractal);
+int			print_key(int key, t_fractal **fractal);
+int			on_destroy_event(t_fractal **fractal);
+void		draw(t_fractal **fractal);
+void		key_pressure(t_fractal **fractal);
+void		draw_julia(t_fractal **fractal);
+void		draw_mandelbrot(t_fractal **fractal);
 int			ft_atoi(const char *nptr);
-void		malloc_color(s_fractal **fractal);
+void		malloc_color(t_fractal **fractal);
 void		instructions_display(void);
-void		draw_burning_ship(s_fractal **fractal);
+void		draw_burning_ship(t_fractal **fractal);
 
 #endif
