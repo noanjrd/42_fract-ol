@@ -6,7 +6,7 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:44:56 by njard             #+#    #+#             */
-/*   Updated: 2025/01/27 15:55:16 by njard            ###   ########.fr       */
+/*   Updated: 2025/01/27 16:24:49 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,11 @@ void	init_fractal(t_fractal **fractal)
 	(*fractal)->start_x = 0;
 	(*fractal)->start_y = 0;
 	(*fractal)->iteration = 50;
+	(*fractal)->mlx = NULL;
+	(*fractal)->win = NULL;
+	(*fractal)->img = NULL;
+	(*fractal)->addr = NULL;
+	(*fractal)->adress = NULL;
 }
 
 void	malloc_color(t_fractal **fractal)
@@ -78,7 +83,10 @@ void	malloc_color(t_fractal **fractal)
 
 	(*fractal)->adress = malloc(sizeof(int));
 	if (!(*fractal)->adress)
+	{
+		*((*fractal)->adress) = 0x123456;
 		return ;
+	}
 	raw_address = (uintptr_t)(*fractal)->adress;
 	*((*fractal)->adress) = raw_address ;
 }

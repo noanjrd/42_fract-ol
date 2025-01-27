@@ -6,7 +6,7 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:46:10 by njard             #+#    #+#             */
-/*   Updated: 2025/01/27 15:46:32 by njard            ###   ########.fr       */
+/*   Updated: 2025/01/27 16:41:16 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,18 +50,18 @@ int	key_action(int key, t_fractal **fractal)
 	return (0);
 }
 
-int	mouse_hook(int button, int x, int y, void **param)
+int	mouse_hook(int button, int x, int y, void *param)
 {
-	t_fractal	**fractal;
+	t_fractal	*fractal;
 
-	fractal = (t_fractal **)param;
+	fractal = (t_fractal *)param;
 	x = 0;
 	y = 0;
 	if (button == 5)
-		(*fractal)->zoom *= 1.1;
+		fractal->zoom *= 1.1;
 	else if (button == 4)
-		(*fractal)->zoom *= 0.9;
-	draw(fractal);
+		fractal->zoom *= 0.9;
+	draw(&fractal);
 	return (0);
 }
 
@@ -77,8 +77,8 @@ void	draw(t_fractal **fractal)
 
 void	key_pressure(t_fractal **fractal)
 {
-	mlx_hook((*fractal)->win, 6, KeyPressMask, mouse_hook, fractal);
-	mlx_mouse_hook((*fractal)->win, mouse_hook, fractal);
+	mlx_hook((*fractal)->win, 6, KeyPressMask, mouse_hook, *fractal);
+	mlx_mouse_hook((*fractal)->win, mouse_hook, *fractal);
 	mlx_key_hook((*fractal)->win, key_action, fractal);
 	mlx_hook((*fractal)->win, 17, 0, on_destroy_event, fractal);
 	mlx_loop((*fractal)->mlx);

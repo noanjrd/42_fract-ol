@@ -6,7 +6,7 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:46:27 by njard             #+#    #+#             */
-/*   Updated: 2025/01/27 15:45:18 by njard            ###   ########.fr       */
+/*   Updated: 2025/01/27 16:30:19 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@ int	main(int argc, char **argv)
 	init_fractal(&fractal);
 	menu(argc, argv, &fractal);
 	fractal->mlx = mlx_init();
+	if (!fractal->mlx)
+	{
+		free(fractal);
+		exit(1);
+	}
 	fractal->win = mlx_new_window(fractal->mlx,
 			WINDOW_WIDTH, WINDOW_HEIGHT, "Fract-ol");
 	fractal->img = mlx_new_image(fractal->mlx,
