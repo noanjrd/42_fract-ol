@@ -11,7 +11,8 @@ SRCS = srcs/julia.c\
 	srcs/utils.c\
 	srcs/instructions.c\
 	srcs/mandelbrot.c\
-	srcs/atoi.c
+	srcs/atoi.c\
+	srcs/init.c
 
 PRINTF_SRCS = ft_printf/*.c
 

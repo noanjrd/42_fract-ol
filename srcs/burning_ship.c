@@ -6,13 +6,13 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:34:43 by njard             #+#    #+#             */
-/*   Updated: 2025/01/27 15:25:28 by njard            ###   ########.fr       */
+/*   Updated: 2025/01/27 15:47:07 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fractol.h"
 
-int	calculate_burning_ship_color(t_fractal *fractal)
+static int	calculate_burning_ship_color(t_fractal *fractal)
 {
 	int		iteration;
 	double	temp;
@@ -45,7 +45,7 @@ static void	put_image(t_fractal **fractal)
 	return ;
 }
 
-static void	define(t_fractal **fractal)
+static void	init_value(t_fractal **fractal)
 {
 	(*fractal)->scale = WINDOW_WIDTH / ((*fractal)->zoom * 4);
 	(*fractal)->z_x = 0;
@@ -60,7 +60,7 @@ void	draw_burning_ship(t_fractal **fractal)
 	int	new_x;
 
 	new_y = 0;
-	define(fractal);
+	init_value(fractal);
 	while (new_y < WINDOW_HEIGHT)
 	{
 		new_x = 0;

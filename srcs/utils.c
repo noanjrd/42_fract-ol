@@ -6,7 +6,7 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:46:10 by njard             #+#    #+#             */
-/*   Updated: 2025/01/27 15:25:33 by njard            ###   ########.fr       */
+/*   Updated: 2025/01/27 15:46:32 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	on_destroy_event(t_fractal **fractal)
 	exit(1);
 }
 
-int	print_key(int key, t_fractal **fractal)
+int	key_action(int key, t_fractal **fractal)
 {
 	if (key == 65363)
 		(*fractal)->start_x += 0.1 * (*fractal)->zoom;
@@ -65,22 +65,21 @@ int	mouse_hook(int button, int x, int y, void **param)
 	return (0);
 }
 
-void	malloc_color(t_fractal **fractal)
+void	draw(t_fractal **fractal)
 {
-	uintptr_t	raw_address;
-
-	(*fractal)->adress = malloc(sizeof(int));
-	if (!(*fractal)->adress)
-		return ;
-	raw_address = (uintptr_t)(*fractal)->adress;
-	*((*fractal)->adress) = raw_address ;
+	if ((*fractal)->number == 0)
+		draw_julia(fractal);
+	if ((*fractal)->number == 1)
+		draw_mandelbrot(fractal);
+	if ((*fractal)->number == 2)
+		draw_burning_ship(fractal);
 }
 
 void	key_pressure(t_fractal **fractal)
 {
 	mlx_hook((*fractal)->win, 6, KeyPressMask, mouse_hook, fractal);
 	mlx_mouse_hook((*fractal)->win, mouse_hook, fractal);
-	mlx_key_hook((*fractal)->win, print_key, fractal);
+	mlx_key_hook((*fractal)->win, key_action, fractal);
 	mlx_hook((*fractal)->win, 17, 0, on_destroy_event, fractal);
 	mlx_loop((*fractal)->mlx);
 }

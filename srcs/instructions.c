@@ -6,11 +6,11 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 10:56:31 by njard             #+#    #+#             */
-/*   Updated: 2025/01/27 15:25:25 by njard            ###   ########.fr       */
+/*   Updated: 2025/01/27 15:38:57 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fractol.h"
+#include "../includes/instructions.h"
 
 void	instructions_display(void)
 {
