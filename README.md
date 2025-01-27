@@ -56,11 +56,11 @@ make</code></pre>
         </section>
         <section>
             <h2>👨‍💻 Author</h2>
-            <p>Project created by <strong>Noan Jard</strong>. 🎉</p>
+            <p>Project created by <strong>Noan Jard</strong>. </p>
         </section>
     </main>
     <footer>
-        <p>🙏 Thank you for checking out this project! If you have any questions, feel free to open an issue or contact me directly. 📩</p>
+        <p>Thank you for checking out this project! If you have any questions, feel free to open an issue or contact me directly. 📩</p>
     </footer>
 </body>
 </html>
