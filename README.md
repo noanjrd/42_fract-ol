@@ -7,7 +7,7 @@
     <main>
         <section>
             <h2>📖 Introduction</h2>
-            <p>Fract-ol is an exciting project that explores the world of fractals through interactive visualizations. This program allows users to generate and explore different mathematical fractals while providing precise control over the parameters. 🌀</p>
+            <p>Fract-ol is an exciting project within the core curriculum of 42 School. It explores the fascinating world of fractals through interactive visualizations, powered by the Minilibx library provided by 42. This program enables users to generate and explore various mathematical fractals with precise control over their parameters. 🌀</p>
         </section>
         <section>
             <h2>✨ Features</h2>
@@ -25,7 +25,6 @@
                 <li><strong>🛠️ Make</strong>: to compile the project</li>
                 <li><strong>📦 gcc</strong> or any other compatible C compiler</li>
                 <li><strong>🖥️ X11</strong> and its libraries (e.g., Xlib, Xrandr)</li>
-                <li><strong>📂 minilibX</strong> (Cloned during make)</li>
             </ul>
         </section>
         <section>
