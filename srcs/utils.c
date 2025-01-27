@@ -6,11 +6,11 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:46:10 by njard             #+#    #+#             */
-/*   Updated: 2025/01/21 11:16:34 by njard            ###   ########.fr       */
+/*   Updated: 2025/01/27 15:25:33 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 int	on_destroy_event(t_fractal **fractal)
 {

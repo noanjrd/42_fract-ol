@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   julia.c                                            :+:      :+:    :+:   */
+/*   burning_ship.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/17 11:46:02 by njard             #+#    #+#             */
-/*   Updated: 2025/01/21 10:04:53 by njard            ###   ########.fr       */
+/*   Created: 2025/01/20 13:34:43 by njard             #+#    #+#             */
+/*   Updated: 2025/01/27 15:25:28 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
-int	calculate_julia_color(double z_x, double z_y, t_fractal *fractal)
+int	calculate_burning_ship_color(t_fractal *fractal)
 {
 	int		iteration;
 	double	temp;
 	int		result;
+	double	z_y;
+	double	z_x;
 
 	iteration = 0;
+	z_x = 0;
+	z_y = 0;
 	while ((z_x * z_x + z_y * z_y <= 4) && (iteration < fractal->iteration))
 	{
+		z_x = fabs(z_x);
+		z_y = fabs(z_y);
 		temp = z_x * z_x - z_y * z_y + fractal->c_re;
 		z_y = 2.0 * z_x * z_y + fractal->c_i;
 		z_x = temp;
@@ -47,7 +53,7 @@ static void	define(t_fractal **fractal)
 	mlx_clear_window((*fractal)->mlx, (*fractal)->win);
 }
 
-void	draw_julia(t_fractal **fractal)
+void	draw_burning_ship(t_fractal **fractal)
 {
 	int	color;
 	int	new_y;
@@ -60,12 +66,11 @@ void	draw_julia(t_fractal **fractal)
 		new_x = 0;
 		while (new_x < WINDOW_WIDTH)
 		{
-			(*fractal)->z_x = (*fractal)->start_x + (new_x - WINDOW_WIDTH / 2)
+			(*fractal)->c_re = (*fractal)->start_x + (new_x - WINDOW_WIDTH / 2)
 				/ (*fractal)->scale;
-			(*fractal)->z_y = (*fractal)->start_y + (new_y - WINDOW_HEIGHT / 2)
+			(*fractal)->c_i = (*fractal)->start_y + (new_y - WINDOW_HEIGHT / 2)
 				/ (*fractal)->scale;
-			color = calculate_julia_color((*fractal)->z_x,
-					(*fractal)->z_y, *fractal);
+			color = calculate_burning_ship_color(*fractal);
 			((int *)(*fractal)->addr)[new_y * WINDOW_WIDTH + new_x] = color;
 			new_x++;
 		}

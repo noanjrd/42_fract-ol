@@ -6,11 +6,11 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:46:27 by njard             #+#    #+#             */
-/*   Updated: 2025/01/21 11:17:41 by njard            ###   ########.fr       */
+/*   Updated: 2025/01/27 15:25:38 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 int	check_name_selection(char *argv, char *chaine)
 {

@@ -1,15 +1,17 @@
 NAME = fract-ol
 CC = cc
-FLAGS = -Wall -Wextra -g3 -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz 
+FLAGS =  -g3 -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz 
 RM = rm -rf
 
-SRCS = julia.c\
-	main.c\
-	burning_ship.c\
-	utils.c\
-	utils2.c\
-	mandelbrot.c\
-	atoi.c
+# remettre les FLAGS
+
+SRCS = srcs/julia.c\
+	srcs/main.c\
+	srcs/burning_ship.c\
+	srcs/utils.c\
+	srcs/instructions.c\
+	srcs/mandelbrot.c\
+	srcs/atoi.c
 
 PRINTF_SRCS = ft_printf/*.c
 
@@ -21,32 +23,43 @@ OBJ = ${SRCS:.c=.o} ${PRINTF_SRCS:.c=.o}
 all: install $(NAME)
 
 $(NAME): $(OBJ)
-	make -C ft_printf/
-	$(CC) $(SRCS) $(PRINTF_SRCS) $(LIBS) $(FLAGS) -o $(NAME)
-	$(RM) *.o
+	@echo "🔨 Building $(NAME)..."
+	@make -C ft_printf/ > /dev/null
+	@$(CC) $(SRCS) $(PRINTF_SRCS) $(LIBS) $(FLAGS) -o $(NAME)
+	@$(RM) srcs/*.o
+	@echo "✅ $(NAME) built successfully!"
+
 
 %.o: %.c
-	$(CC) -Wall -Wextra -Werror -g3 -I/usr/include -Imlx_linux -O3 -c $< -o $@
+	@$(CC) $(FLAGS) -c $< -o $@
 
 mlx_linux:
 	@if [ ! -d "mlx_linux" ]; then \
-		git clone https://github.com/42Paris/minilibx-linux.git mlx_linux; \
+		echo "📥 Cloning mlx_linux..."; \
+		git clone https://github.com/42Paris/minilibx-linux.git mlx_linux > /dev/null 2>&1; \
 	fi
-	make -C mlx_linux/
+	@echo "⚙️ Building MiniLibX..."
+	@make -C mlx_linux/ > /dev/null
+	@echo "✅ MiniLibX built successfully!"
+
 
 install: mlx_linux ft_printf
 
 clean:
-	$(RM) $(OBJ)
-	make -C ft_printf/ clean
+	@echo "🧹 Cleaning..."
+	@$(RM) $(OBJ)
+	@make -C ft_printf/ clean > /dev/null
 	@if [ -d "mlx_linux" ]; then \
-		make -C mlx_linux/ clean; \
+		make -C mlx_linux/ clean > /dev/null; \
 	fi
+	@echo "✅ Cleaned all files!"
 
 fclean: clean
-	$(RM) $(NAME)
-	make -C ft_printf/ fclean
-	$(RM) mlx_linux
+	@echo "🗑️ Removing $(NAME)..."
+	@$(RM) $(NAME)
+	@make -C ft_printf/ fclean > /dev/null
+	@$(RM) mlx_linux
+	@echo "✅ Full clean done!"
 
 re: fclean all
 

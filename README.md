@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <body>
     <header>
         <h1>Fract-ol</h1>
@@ -7,25 +7,25 @@
     <main>
         <section>
             <h2>Introduction</h2>
-            <p>Fract-ol est un projet passionnant qui explore le monde des fractales à travers des visualisations interactives. Ce programme permet de générer et d'explorer différentes fractales mathématiques, tout en offrant un contrôle précis sur les paramètres.</p>
+            <p>Fract-ol is an exciting project that explores the world of fractals through interactive visualizations. This program allows users to generate and explore different mathematical fractals while providing precise control over the parameters.</p>
         </section>
         <section>
-            <h2>Fonctionnalités</h2>
+            <h2>Features</h2>
             <ul>
-                <li>Génération de plusieurs types de fractales : Mandelbrot, Julia, Burning Ship</li>
-                <li>Contrôle interactif pour zoomer, dézoomer et explorer les fractales</li>
-                <li>Prise en charge de différents paramètres pour personnaliser l'affichage</li>
-                <li>Interface graphique fluide et réactive</li>
-                <li>Couleurs des fractales générées aléatoirement</li>
+                <li>Generation of multiple types of fractals: Mandelbrot, Julia, Burning Ship</li>
+                <li>Interactive controls for zooming, unzooming, and exploring fractals</li>
+                <li>Support for various parameters to customize the display</li>
+                <li>Smooth and responsive graphical interface</li>
+                <li>Randomly generated fractal colors</li>
             </ul>
         </section>
         <section>
-            <h2>Prérequis</h2>
+            <h2>Requirements</h2>
             <ul>
-                <li><strong>Make</strong> : pour compiler le projet</li>
-                <li><strong>gcc</strong> ou tout autre compilateur C compatible</li>
-                <li><strong>X11</strong> et ses bibliothèques (exemple : Xlib, Xrandr)</li>
-                <li><strong>minilibX</strong> (Se clone lors de make)</li>
+                <li><strong>Make</strong>: to compile the project</li>
+                <li><strong>gcc</strong> or any other compatible C compiler</li>
+                <li><strong>X11</strong> and its libraries (e.g., Xlib, Xrandr)</li>
+                <li><strong>minilibX</strong> (Cloned during make)</li>
             </ul>
         </section>
         <section>
@@ -35,32 +35,32 @@ cd 42_fract-ol
 make</code></pre>
         </section>
         <section>
-            <h2>Utilisation</h2>
-            <p>Lancez le programme en ligne de commande en spécifiant la fractale souhaitée :</p>
-            <pre><code>./fract-ol [type_fractale]</code></pre>
-            <h3>Types de fractales disponibles :</h3>
+            <h2>Usage</h2>
+            <p>Run the program from the command line by specifying the desired fractal:</p>
+            <pre><code>./fract-ol [fractal_type]</code></pre>
+            <h3>Available fractal types:</h3>
             <ul>
                 <li>Mandelbrot</li>
                 <li>Julia</li>
                 <li>Burning_Ship</li>
             </ul>
-            <p>Exemple :</p>
+            <p>Example:</p>
             <pre><code>./fract-ol Mandelbrot</code></pre>
-            <h3>Commandes interactives :</h3>
+            <h3>Interactive controls:</h3>
             <ul>
-                <li>Flèches directionnelles : déplacer la vue</li>
-                <li>Molette de la souris : zoomer / dézoomer</li>
-                <li>Touches q,w,a et s : ajuster les paramètres de la fractale Julia</li>
-                <li>Échap : quitter le programme</li>
+                <li>Arrow keys: move the view</li>
+                <li>Mouse wheel: zoom in / zoom out</li>
+                <li>Keys q, w, a, and s: adjust parameters for the Julia fractal</li>
+                <li>Escape: quit the program</li>
             </ul>
         </section>
         <section>
-            <h2>Auteur</h2>
-            <p>Projet réalisé par <strong>Noan Jard</strong>.</p>
+            <h2>Author</h2>
+            <p>Project created by <strong>Noan Jard</strong>.</p>
         </section>
     </main>
     <footer>
-        <p>Merci d'avoir consulté ce projet ! Si vous avez des questions, n'hésitez pas à ouvrir une issue ou à me contacter directement.</p>
+        <p>Thank you for checking out this project! If you have any questions, feel free to open an issue or contact me directly.</p>
     </footer>
 </body>
 </html>

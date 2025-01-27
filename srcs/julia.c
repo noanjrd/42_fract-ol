@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/17 11:46:19 by njard             #+#    #+#             */
-/*   Updated: 2025/01/21 10:05:09 by njard            ###   ########.fr       */
+/*   Created: 2025/01/17 11:46:02 by njard             #+#    #+#             */
+/*   Updated: 2025/01/27 15:25:13 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
-int	calculate_mandelbrot_color(t_fractal *fractal)
+int	calculate_julia_color(double z_x, double z_y, t_fractal *fractal)
 {
 	int		iteration;
 	double	temp;
 	int		result;
-	double	z_x;
-	double	z_y;
 
-	z_x = 0;
-	z_y = 0;
 	iteration = 0;
 	while ((z_x * z_x + z_y * z_y <= 4) && (iteration < fractal->iteration))
 	{
@@ -32,14 +28,14 @@ int	calculate_mandelbrot_color(t_fractal *fractal)
 	}
 	if (iteration == fractal->iteration)
 		return (0x000000);
-	result = iteration * *(fractal->adress);
+	result = iteration * (*fractal->adress);
 	return (result);
 }
 
 static void	put_image(t_fractal **fractal)
 {
-	mlx_put_image_to_window((*fractal)->mlx, (*fractal)->win, (*fractal)->img,
-		0, 0);
+	mlx_put_image_to_window((*fractal)->mlx, (*fractal)->win,
+		(*fractal)->img, 0, 0);
 	return ;
 }
 
@@ -51,7 +47,7 @@ static void	define(t_fractal **fractal)
 	mlx_clear_window((*fractal)->mlx, (*fractal)->win);
 }
 
-void	draw_mandelbrot(t_fractal **fractal)
+void	draw_julia(t_fractal **fractal)
 {
 	int	color;
 	int	new_y;
@@ -64,11 +60,12 @@ void	draw_mandelbrot(t_fractal **fractal)
 		new_x = 0;
 		while (new_x < WINDOW_WIDTH)
 		{
-			(*fractal)->c_re = (*fractal)->start_x + (new_x - WINDOW_WIDTH / 2)
+			(*fractal)->z_x = (*fractal)->start_x + (new_x - WINDOW_WIDTH / 2)
 				/ (*fractal)->scale;
-			(*fractal)->c_i = (*fractal)->start_y + (new_y - WINDOW_HEIGHT / 2)
+			(*fractal)->z_y = (*fractal)->start_y + (new_y - WINDOW_HEIGHT / 2)
 				/ (*fractal)->scale;
-			color = calculate_mandelbrot_color((*fractal));
+			color = calculate_julia_color((*fractal)->z_x,
+					(*fractal)->z_y, *fractal);
 			((int *)(*fractal)->addr)[new_y * WINDOW_WIDTH + new_x] = color;
 			new_x++;
 		}

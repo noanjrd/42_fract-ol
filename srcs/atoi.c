@@ -6,11 +6,11 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:46:38 by njard             #+#    #+#             */
-/*   Updated: 2025/01/20 10:17:44 by njard            ###   ########.fr       */
+/*   Updated: 2025/01/27 15:25:31 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fractol.h"
+#include "../includes/fractol.h"
 
 int	ft_atoi(const char *nptr)
 {

@@ -6,16 +6,16 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 10:19:29 by njard             #+#    #+#             */
-/*   Updated: 2025/01/21 11:34:09 by njard            ###   ########.fr       */
+/*   Updated: 2025/01/27 15:19:26 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
 # define FRACTOL_H
 
-# include "ft_printf/ft_printf.h"
-# include "mlx_linux/mlx.h"
-# include "mlx_linux/mlx_int.h"
+# include "../ft_printf/ft_printf.h"
+# include "../mlx_linux/mlx.h"
+# include "../mlx_linux/mlx_int.h"
 # include <math.h>
 # include <stdint.h>
 # include <stdlib.h>
