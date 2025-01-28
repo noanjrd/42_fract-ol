@@ -6,7 +6,7 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:46:10 by njard             #+#    #+#             */
-/*   Updated: 2025/01/27 16:41:16 by njard            ###   ########.fr       */
+/*   Updated: 2025/01/28 11:47:25 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ int	mouse_hook(int button, int x, int y, void *param)
 {
 	t_fractal	*fractal;
 
+	(void)x;
+	(void)y;
 	fractal = (t_fractal *)param;
-	x = 0;
-	y = 0;
 	if (button == 5)
 		fractal->zoom *= 1.1;
 	else if (button == 4)
