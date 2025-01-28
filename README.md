@@ -49,6 +49,7 @@ make</code></pre>
             <ul>
                 <li>⬅️➡️⬆️⬇️ Arrow keys: move the view</li>
                 <li>🖱️ Mouse wheel: zoom in / zoom out</li>
+                <li>ℹ️ Key i: add iterations to the fractal</li>
                 <li>⌨️ Keys q, w, a, and s: adjust parameters for the Julia fractal</li>
                 <li>❌ Escape: quit the program</li>
             </ul>
