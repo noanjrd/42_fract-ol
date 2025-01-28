@@ -53,6 +53,21 @@ make</code></pre>
                 <li>❌ Escape: quit the program</li>
             </ul>
         </section>
+    <section>
+        <h2>🌌 Screenshots</h2>
+        <h3>Julia set</h3>
+        <p align="">
+        <img src="imgs/Julia.png" alt="Julia set screenshot" width="600" style="border-radius: 15;" />
+        </p>
+        <h3>Mandelbrot set</h3>
+        <p align="">
+        <img src="imgs/Mandelbrot.png" alt="Julia set screenshot" width="600" style="border-radius: 15;" />
+        </p>
+        <h3>Burning ship set</h3>
+        <p align="">
+        <img src="imgs/Burning_ship.png" alt="Julia set screenshot" width="600" style="border-radius: 15;" />
+        </p>
+    </section>
         <section>
             <h2>👨‍💻 Author</h2>
             <p>Project made by <strong>Noan Jard</strong>. </p>
