@@ -63,7 +63,7 @@ make</code></pre>
         <p align="">
         <img src="imgs/Mandelbrot.png" alt="Julia set screenshot" width="600" style="border-radius: 15;" />
         </p>
-        <h3>Burning ship set</h3>
+        <h3>Burning Ship set</h3>
         <p align="">
         <img src="imgs/Burning_ship.png" alt="Julia set screenshot" width="600" style="border-radius: 15;" />
         </p>
