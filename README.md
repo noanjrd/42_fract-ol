@@ -41,7 +41,7 @@ make</code></pre>
             <ul>
                 <li>🌌 Mandelbrot</li>
                 <li>🌟 Julia</li>
-                <li>🔥 Burning_Ship</li>
+                <li>🔥 Burning_ship</li>
             </ul>
             <p>Example:</p>
             <pre><code>./fract-ol Mandelbrot</code></pre>
