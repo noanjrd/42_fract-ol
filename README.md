@@ -54,7 +54,7 @@ make</code></pre>
             </ul>
         </section>
     <section>
-        <h2>🌌 Screenshots</h2>
+        <h2>🌅 Screenshots</h2>
         <h3>Julia set</h3>
         <p align="">
         <img src="imgs/Julia.png" alt="Julia set screenshot" width="600" style="border-radius: 15;" />
