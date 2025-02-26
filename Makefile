@@ -32,7 +32,7 @@ $(NAME): $(OBJ)
 
 
 %.o: %.c
-	@$(CC) $(FLAGS) -c $< -o $@
+	@$(CC) -Wall -Wextra -Werror -c $< -o $@
 
 mlx_linux:
 	@if [ ! -d "mlx_linux" ]; then \
