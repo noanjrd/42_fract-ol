@@ -3,7 +3,6 @@ CC = cc
 FLAGS = -Wall -Wextra -Werror	 -g3 -Lmlx_linux -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz 
 RM = rm -rf
 
-# remettre les FLAGS
 
 SRCS = srcs/julia.c\
 	srcs/main.c\
