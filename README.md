@@ -71,7 +71,7 @@ make</code></pre>
     </section>
         <section>
             <h2>👨‍💻 Author</h2>
-            <p>Project made by <strong>Noan Jard</strong>. </p>
+            <p>Project made by <strong>JARD Noan</strong>. </p>
         </section>
     </main>
     <footer>
