@@ -74,8 +74,5 @@ make</code></pre>
             <p>Project made by <strong>JARD Noan</strong>. </p>
         </section>
     </main>
-    <footer>
-        <p>Thank you for checking out this project! If you have any questions, feel free to open an issue or contact me directly. 📩</p>
-    </footer>
 </body>
 </html>
