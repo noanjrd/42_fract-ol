@@ -6,7 +6,7 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:46:10 by njard             #+#    #+#             */
-/*   Updated: 2025/01/28 11:47:25 by njard            ###   ########.fr       */
+/*   Updated: 2025/08/30 00:33:50 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	on_destroy_event(t_fractal **fractal)
 	free((*fractal)->adress);
 	free((*fractal)->mlx);
 	free(*fractal);
-	exit(1);
+	exit(0);
 }
 
 int	key_action(int key, t_fractal **fractal)

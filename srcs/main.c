@@ -6,7 +6,7 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:46:27 by njard             #+#    #+#             */
-/*   Updated: 2025/01/27 16:30:19 by njard            ###   ########.fr       */
+/*   Updated: 2025/08/30 00:34:05 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,5 @@ int	main(int argc, char **argv)
 	draw(&fractal);
 	mlx_put_image_to_window(fractal->mlx, fractal->win, fractal->img, 0, 0);
 	key_pressure(&fractal);
+	return 0;
 }
