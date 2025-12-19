@@ -69,10 +69,6 @@ make</code></pre>
         <img src="imgs/Burning_ship.png" alt="Julia set screenshot" width="600" style="border-radius: 15;" />
         </p>
     </section>
-        <section>
-            <h2>👨‍💻 Author</h2>
-            <p>Project made by <strong>JARD Noan</strong>. </p>
-        </section>
     </main>
 </body>
 </html>
