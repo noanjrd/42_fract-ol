@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <body>
     <header>
         <h1>🌟 Fract-ol 🌟</h1>
