@@ -6,7 +6,7 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:44:56 by njard             #+#    #+#             */
-/*   Updated: 2025/01/27 16:24:49 by njard            ###   ########.fr       */
+/*   Updated: 2026/02/14 14:29:41 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,58 +35,58 @@ static int	check_name_selection(char *argv, char *chaine)
 	return (1);
 }
 
-void	menu(int argc, char **argv, t_fractal **fractal)
+void	menu(int argc, char **argv, t_fractal *fractal)
 {
 	if (argc == 1)
 	{
 		instructions_display();
-		free(*fractal);
+		free(fractal);
 		exit(1);
 	}
 	if (check_name_selection(argv[1], "Julia"))
-		(*fractal)->number = 0;
+		fractal->number = 0;
 	if (check_name_selection(argv[1], "Mandelbrot"))
-		(*fractal)->number = 1;
+		fractal->number = 1;
 	if (check_name_selection(argv[1], "Burning_ship"))
-		(*fractal)->number = 2;
+		fractal->number = 2;
 	if (argc >= 3)
-		(*fractal)->c_re = ft_atoi(argv[2]);
+		fractal->c_re = ft_atoi(argv[2]);
 	if (argc == 4)
-		(*fractal)->c_i = ft_atoi(argv[3]);
-	if ((*fractal)->number == 99)
+		fractal->c_i = ft_atoi(argv[3]);
+	if (fractal->number == 99)
 	{
 		instructions_display();
-		free(*fractal);
+		free(fractal);
 		exit(1);
 	}
 }
 
-void	init_fractal(t_fractal **fractal)
+void	init_fractal(t_fractal *fractal)
 {
-	(*fractal)->number = 99;
-	(*fractal)->c_re = -0.7;
-	(*fractal)->c_i = 0.3;
-	(*fractal)->zoom = 1.0;
-	(*fractal)->start_x = 0;
-	(*fractal)->start_y = 0;
-	(*fractal)->iteration = 50;
-	(*fractal)->mlx = NULL;
-	(*fractal)->win = NULL;
-	(*fractal)->img = NULL;
-	(*fractal)->addr = NULL;
-	(*fractal)->adress = NULL;
+	fractal->number = 99;
+	fractal->c_re = -0.7;
+	fractal->c_i = 0.3;
+	fractal->zoom = 1.0;
+	fractal->start_x = 0;
+	fractal->start_y = 0;
+	fractal->iteration = 50;
+	fractal->mlx = NULL;
+	fractal->win = NULL;
+	fractal->img = NULL;
+	fractal->addr = NULL;
+	fractal->adress = NULL;
 }
 
-void	malloc_color(t_fractal **fractal)
+void	malloc_color(t_fractal *fractal)
 {
 	uintptr_t	raw_address;
 
-	(*fractal)->adress = malloc(sizeof(int));
-	if (!(*fractal)->adress)
+	fractal->adress = malloc(sizeof(int));
+	if (!fractal->adress)
 	{
-		*((*fractal)->adress) = 0x123456;
+		*(fractal->adress) = 0x123456;
 		return ;
 	}
-	raw_address = (uintptr_t)(*fractal)->adress;
-	*((*fractal)->adress) = raw_address ;
+	raw_address = (uintptr_t)fractal->adress;
+	*(fractal->adress) = raw_address ;
 }

@@ -6,7 +6,7 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 15:37:26 by njard             #+#    #+#             */
-/*   Updated: 2025/01/27 15:55:26 by njard            ###   ########.fr       */
+/*   Updated: 2026/02/14 14:13:10 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@
 # define EIGHTLINE_PART2 "                          "
 # define EIGHTLINE_PART3 "                          |\n"
 
-# define TENLINE_PART1 "|   ./fract-ol <fractal "
+# define TENLINE_PART1 "|   ./fract-ol <fractal_"
 # define TENLINE_PART2 "name> [reel constant] ["
 # define TENLINE_PART3 "imaginary constant]             |\n"
 

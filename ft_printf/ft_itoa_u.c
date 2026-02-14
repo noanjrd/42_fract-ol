@@ -6,7 +6,7 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 09:30:00 by njard             #+#    #+#             */
-/*   Updated: 2025/01/07 19:15:34 by njard            ###   ########.fr       */
+/*   Updated: 2026/02/14 14:54:32 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,3 @@ char	*ft_itoa_u(unsigned int n)
 	fill_tab(tab, nb, place - 1, signe);
 	return (tab);
 }
-
-// int main()
-// {
-//     int nb = 10000;
-//     ft_itoa(nb);
-// }

@@ -6,7 +6,7 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/17 11:46:27 by njard             #+#    #+#             */
-/*   Updated: 2025/08/30 00:34:05 by njard            ###   ########.fr       */
+/*   Updated: 2026/02/14 14:27:14 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	main(int argc, char **argv)
 	fractal = malloc(sizeof(t_fractal));
 	if (!fractal)
 		exit(1);
-	init_fractal(&fractal);
-	menu(argc, argv, &fractal);
+	init_fractal(fractal);
+	menu(argc, argv, fractal);
 	fractal->mlx = mlx_init();
 	if (!fractal->mlx)
 	{
@@ -33,9 +33,9 @@ int	main(int argc, char **argv)
 			WINDOW_WIDTH, WINDOW_HEIGHT);
 	fractal->addr = mlx_get_data_addr(fractal->img,
 			&fractal->bits_per_pixel, &fractal->line_length, &fractal->endian);
-	malloc_color(&fractal);
-	draw(&fractal);
+	malloc_color(fractal);
+	draw(fractal);
 	mlx_put_image_to_window(fractal->mlx, fractal->win, fractal->img, 0, 0);
-	key_pressure(&fractal);
-	return 0;
+	key_pressure(fractal);
+	return (0);
 }

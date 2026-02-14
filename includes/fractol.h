@@ -6,7 +6,7 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 10:19:29 by njard             #+#    #+#             */
-/*   Updated: 2025/01/27 15:55:31 by njard            ###   ########.fr       */
+/*   Updated: 2026/02/14 14:52:58 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,16 @@ typedef struct t_fractal
 	double	scale;
 }			t_fractal;
 
-int			print_key(int key, t_fractal **fractal);
-int			on_destroy_event(t_fractal **fractal);
-void		draw(t_fractal **fractal);
-void		key_pressure(t_fractal **fractal);
-void		draw_julia(t_fractal **fractal);
-void		draw_mandelbrot(t_fractal **fractal);
+int			on_destroy_event(t_fractal *fractal);
+void		draw(t_fractal *fractal);
+void		key_pressure(t_fractal *fractal);
+void		draw_julia(t_fractal *fractal);
+void		draw_mandelbrot(t_fractal *fractal);
 int			ft_atoi(const char *nptr);
-void		malloc_color(t_fractal **fractal);
+void		malloc_color(t_fractal *fractal);
 void		instructions_display(void);
-void		draw_burning_ship(t_fractal **fractal);
-void		menu(int argc, char **argv, t_fractal **fractal);
-void		init_fractal(t_fractal **fractal);
+void		draw_burning_ship(t_fractal *fractal);
+void		menu(int argc, char **argv, t_fractal *fractal);
+void		init_fractal(t_fractal *fractal);
 
 #endif

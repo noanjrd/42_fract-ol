@@ -6,7 +6,7 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 13:34:43 by njard             #+#    #+#             */
-/*   Updated: 2025/01/27 15:47:07 by njard            ###   ########.fr       */
+/*   Updated: 2026/02/14 15:00:22 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,22 +38,22 @@ static int	calculate_burning_ship_color(t_fractal *fractal)
 	return (result);
 }
 
-static void	put_image(t_fractal **fractal)
+static void	put_image(t_fractal *fractal)
 {
-	mlx_put_image_to_window((*fractal)->mlx, (*fractal)->win,
-		(*fractal)->img, 0, 0);
+	mlx_put_image_to_window(fractal->mlx, fractal->win,
+		fractal->img, 0, 0);
 	return ;
 }
 
-static void	init_value(t_fractal **fractal)
+static void	init_value(t_fractal *fractal)
 {
-	(*fractal)->scale = WINDOW_WIDTH / ((*fractal)->zoom * 4);
-	(*fractal)->z_x = 0;
-	(*fractal)->z_y = 0;
-	mlx_clear_window((*fractal)->mlx, (*fractal)->win);
+	fractal->scale = WINDOW_WIDTH / (fractal->zoom * 4);
+	fractal->z_x = 0;
+	fractal->z_y = 0;
+	mlx_clear_window(fractal->mlx, fractal->win);
 }
 
-void	draw_burning_ship(t_fractal **fractal)
+void	draw_burning_ship(t_fractal *fractal)
 {
 	int	color;
 	int	new_y;
@@ -66,12 +66,12 @@ void	draw_burning_ship(t_fractal **fractal)
 		new_x = 0;
 		while (new_x < WINDOW_WIDTH)
 		{
-			(*fractal)->c_re = (*fractal)->start_x + (new_x - WINDOW_WIDTH / 2)
-				/ (*fractal)->scale;
-			(*fractal)->c_i = (*fractal)->start_y + (new_y - WINDOW_HEIGHT / 2)
-				/ (*fractal)->scale;
-			color = calculate_burning_ship_color(*fractal);
-			((int *)(*fractal)->addr)[new_y * WINDOW_WIDTH + new_x] = color;
+			fractal->c_re = fractal->start_x + (new_x - WINDOW_WIDTH / 2)
+				/ fractal->scale;
+			fractal->c_i = fractal->start_y + (new_y - WINDOW_HEIGHT / 2)
+				/ fractal->scale;
+			color = calculate_burning_ship_color(fractal);
+			((int *)fractal->addr)[new_y * WINDOW_WIDTH + new_x] = color;
 			new_x++;
 		}
 		new_y++;

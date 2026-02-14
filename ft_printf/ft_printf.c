@@ -6,7 +6,7 @@
 /*   By: njard <njard@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 11:54:10 by njard             #+#    #+#             */
-/*   Updated: 2024/12/02 13:29:28 by njard            ###   ########.fr       */
+/*   Updated: 2026/02/14 14:55:01 by njard            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,16 +64,3 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (len);
 }
-
-// int	main()
-// {
-// 	// char i[20] = "coucouc vca va ";
-// 	unsigned long	i;
-
-// 	i = 4654553;
-// 	int len;
-// 	len = ft_printf("%lx", i);
-// 	printf("\ntaille : %i\n", len);
-// 	len = printf("%lx", i);
-// 	printf("\n taille : %i", len);
-// }

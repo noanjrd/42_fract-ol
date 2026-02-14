@@ -26,7 +26,6 @@ $(NAME): $(OBJ)
 	@echo "🔨 Building $(NAME)..."
 	@make -C ft_printf/ > /dev/null
 	@$(CC) $(SRCS) $(PRINTF_SRCS) $(LIBS) $(FLAGS) -o $(NAME)
-	@$(RM) srcs/*.o
 	@echo "✅ $(NAME) built successfully!"
 
 
