@@ -4,7 +4,7 @@
   <img src="imgs/Mandelbrot.png" alt="Mandelbrot fractal" width="400"/>
 </p>
 
-## 🔍 About
+## About
 
 **Fract-ol** is a real-time fractal visualization program developed as part of the 42 School curriculum in **January 2025**. This project explores the mathematical beauty of fractals through interactive rendering using the **[MiniLibX](https://harm-smits.github.io/42docs/libs/minilibx)** graphics library.
 
@@ -13,7 +13,7 @@ The program implements three distinct fractal sets with full mouse and keyboard 
 > **MiniLibX** is a simple graphics library provided by 42 School for creating graphical applications. It provides basic window management, image manipulation, and event handling. [Learn more about MiniLibX](https://harm-smits.github.io/42docs/libs/minilibx).
 
 
-## 🌀 What is a Fractal?
+## What is a Fractal?
 
 A **fractal** is a mathematical set that exhibits self-similarity at different scales. When you zoom into a fractal, you discover similar patterns repeating infinitely. Fractals are defined by iterative mathematical formulas where complex numbers are repeatedly transformed.
 
@@ -65,7 +65,7 @@ z(n+1) = (|Re(z)| + i|Im(z)|)² + c
 - Named for its resemblance to a ship engulfed in flames
 
 
-## ✨ Features
+## Features
 
 - **Three fractal types**: Mandelbrot, Julia, and Burning Ship
 - **Real-time rendering** with optimized calculations
@@ -79,7 +79,7 @@ z(n+1) = (|Re(z)| + i|Im(z)|)² + c
 - **Memory-safe**: No memory leaks, proper cleanup on exit
 
 
-## 🛠️ Installation
+## Installation
 
 ### Prerequisites
 - **Linux** operating system
@@ -98,7 +98,7 @@ make
 This will compile the program and generate the `fractol` executable.
 
 
-## 🚀 Usage
+## Usage
 
 Run the program by specifying the desired fractal type:
 
@@ -116,7 +116,7 @@ Run the program by specifying the desired fractal type:
 ### Invalid input:
 Running the program without arguments or with invalid parameters displays usage instructions.
 
-## 🎮 Controls
+## Controls
 
 | Control | Action |
 |---------|--------|
@@ -127,7 +127,7 @@ Running the program without arguments or with invalid parameters displays usage 
 | **A / S** | Adjust Julia `c_i` parameter (imaginary part) |
 | **ESC** / Close button | Exit program 
 
-## 🔧 Technical Details
+## Technical Details
 
 ### Structure: `t_fractal`
 
@@ -172,7 +172,7 @@ typedef struct t_fractal
 - **Rendering**: Direct pixel manipulation using MLX image buffer
 
 
-## 🎨 Gallery
+## Gallery
 
 ### Julia Set
 <p align="center">
@@ -189,6 +189,6 @@ typedef struct t_fractal
   <img src="imgs/Burning_ship.png" alt="Burning Ship" width="500"/>
 </p>
 
-## 📄 License
+## License
 
 This project is part of the 42 School curriculum and follows the school's academic policies.
