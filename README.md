@@ -6,7 +6,7 @@
 
 ## About
 
-**Fract-ol** is a real-time fractal visualization program developed as part of the 42 School curriculum in **January 2025**. This project explores the mathematical beauty of fractals through interactive rendering using the **[MiniLibX](https://harm-smits.github.io/42docs/libs/minilibx)** graphics library.
+**Fract-ol** is a real-time fractal visualization program developed as part of the 42 School curriculum. This project explores the mathematical beauty of fractals through interactive rendering using the **[MiniLibX](https://harm-smits.github.io/42docs/libs/minilibx)** graphics library.
 
 The program implements three distinct fractal sets with full mouse and keyboard navigation, allowing users to explore infinite mathematical complexity in stunning detail.
 
